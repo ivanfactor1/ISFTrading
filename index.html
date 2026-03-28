@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ISF Trading</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.jpg">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: black;
+}
+
+nav a {
+  color: #aaa;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -100px;
+  top: -100px;
+  width: 400px;
+  height: 600px;
+  background: linear-gradient(135deg, transparent 40%, white 40%, white 60%, transparent 60%);
+  opacity: 0.05;
+  transform: rotate(20deg);
+}
+
+.hero-text {
+  max-width: 550px;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 52px;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: red;
+}
+
+.blue {
+  color: #3b82f6;
+}
+
+p {
+  color: #bbb;
+  line-height: 1.6;
+}
+
+/* BUTTON */
+.btn {
+  background: linear-gradient(135deg, red, #a00000);
+  padding: 14px 28px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* IMAGE */
+.hero img {
+  width: 300px;
+  border-radius: 12px;
+}
+
+/* SECTIONS */
+section {
+  padding: 70px 40px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SPLIT */
+.split {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+/* FEATURES */
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #111;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #222;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: red;
+  transform: translateY(-5px);
+}
+
+/* TESTIMONIAL CAROUSEL */
+.carousel {
+  overflow: hidden;
+  max-width: 700px;
+  margin: auto;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 15s linear infinite;
+}
+
+.testimonial {
+  min-width: 250px;
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.testimonial p {
+  font-style: italic;
+  color: #ccc;
+}
+
+.testimonial span {
+  display: block;
+  margin-top: 10px;
+  color: red;
+}
+
+/* ANIMATION */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* CTA */
+.cta {
+  background: linear-gradient(to top, rgba(255,0,0,0.15), transparent);
+  padding: 80px 40px;
+  text-align: center;
+}
+
+/* TELEGRAM */
+.telegram {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: red;
+  padding: 15px;
+  border-radius: 50%;
+  color: white;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: black;
+  color: #777;
+}
+.carousel {
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 30px;
+  animation: scroll 35s linear infinite;
+}
+
+.testimonial {
+  min-width: 380px;
+  max-width: 400px;
+  background: linear-gradient(145deg, #0f0f0f, #080808);
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid #222;
+  transition: 0.3s;
+}
+
+.testimonial:hover {
+  border-color: red;
+  transform: translateY(-6px);
+}
+
+.testimonial p {
+  font-style: italic;
+  color: #ccc;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.testimonial span {
+  display: block;
+  margin-top: 20px;
+  color: #888;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+/* MOBILE OPTIMISATION */
+@media (max-width: 768px) {
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 20px;
+  }
+
+  .hero img {
+    width: 200px;
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .split {
+    flex-direction: column;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 50px 20px;
+  }
+
+  .testimonial {
+    min-width: 280px;
+  }
+
+  .carousel-track {
+    animation-duration: 45s;
+  }
+
+  .logo {
+    width: 120px;
+  }
+}
+section {
+  position: relative;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255,0,0,0.05), transparent);
+  pointer-events: none;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div><strong>ISF Trading</strong></div>
+  <div>
+    <a href="#">Home</a>
+    <a href="https://t.me/+ubJE9w2ZB9wyZjU0">Results</a>
+    <a href="#">Testimonials</a>
+    <a href="https://www.instagram.com/ivanfactor_/" target="_blank">Instagram</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+
+    <img src="logo.jpg" class="logo">
+
+    <h1>Built by Traders,<br>for <span class="highlight">Traders</span></h1>
+
+    <p>I’m Ivan Factor, helping traders go from confusion to consistency.</p>
+
+    <p>ISF Trading is where you see real results, real execution, and a clear path to improving.</p>
+
+    <a href="https://t.me/+ubJE9w2ZB9wyZjU0" target="_blank" class="btn">Start Trading</a>
+  </div>
+
+  <img src="yourphoto.jpg">
+</div>
+
+<!-- ABOUT -->
+<section class="split">
+  <div>
+    <h2>My Story</h2>
+    <p>Like most people, I started with no direction financially — living paycheck to paycheck.</p>
+    <p>While studying Aerospace Engineering, I committed to trading and built something real.</p>
+    <p>Now I focus on helping others build that same level of discipline and consistency.</p>
+  </div>
+
+  <div class="features">
+    <div class="card">Beginner → Advanced Path</div>
+    <div class="card">Clear Trading Framework</div>
+    <div class="card">Live Market Insight</div>
+    <div class="card">Support & Accountability</div>
+  </div>
+</section>
+
+<!-- VIP -->
+<section class="split">
+  <div class="features">
+    <div class="card">Scalping Signals</div>
+    <div class="card">High Volume Trades</div>
+    <div class="card">Live Calls</div>
+    <div class="card">1-on-1 Mentorship</div>
+  </div>
+
+  <div>
+    <h2>Inside <span class="blue">QuantumX</span></h2>
+    <p>The VIP community is where everything comes together — signals, education, and live guidance.</p>
+    <p>Built for traders who are serious about improving.</p>
+  </div>
+</section>
+<section>
+  <h2>How It Works</h2>
+
+  <div class="features">
+    <div class="card">1. Join through the link</div>
+    <div class="card">2. Get access to VIP</div>
+    <div class="card">3. Learn the system</div>
+    <div class="card">4. Execute & improve</div>
+  </div>
+</section>
+<section class="split">
+  <div>
+    <h2>Who This Is For</h2>
+    <p>✔ Beginners who want a clear path</p>
+    <p>✔ Traders stuck and needing structure</p>
+    <p>✔ People serious about improving</p>
+  </div>
+
+  <div>
+    <h2>Not For</h2>
+    <p>✖ People looking for quick money</p>
+    <p>✖ No effort / no discipline</p>
+    <p>✖ Those not willing to learn</p>
+  </div>
+</section>
+<!-- RESULTS -->
+
+  <section>
+  <h2>Results & Proof</h2>
+  <p>All results are shared live inside the ISF Trading channel.</p>
+
+  <div class="features">
+    <div class="card" onclick="window.open('https://t.me/+ubJE9w2ZB9wyZjU0', '_blank')">
+      Live Trade Results
+    </div>
+
+    <div class="card" onclick="window.open('https://t.me/+ubJE9w2ZB9wyZjU0', '_blank')">
+      Profit Screenshots
+    </div>
+
+    <div class="card" onclick="window.open('https://t.me/+ubJE9w2ZB9wyZjU0', '_blank')">
+      Trade Breakdowns
+    </div>
+
+    <div class="card" onclick="window.open('https://t.me/+ubJE9w2ZB9wyZjU0', '_blank')">
+      Live Sessions
+    </div>
+  </div>
+
+  <a href="https://t.me/+ubJE9w2ZB9wyZjU0" target="_blank" class="btn">View Live Results</a>
+
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <h2>What Traders Are Saying</h2>
+  <p style="color:#aaa; max-width:700px;">
+    Real experiences from members inside QuantumX.
+  </p>
+
+  <div class="carousel">
+    <div class="carousel-track">
+
+      <div class="testimonial">
+        <p>
+          Ever since I have joined QuantumX and started with Ivan as my mentor, my knowledge and skills in trading have improved significantly. 
+          So much so that I myself can now slowly start guiding people. Ivan has been a great help throughout my whole journey, answering any questions I have. 
+          My expectations were highly exceeded and I would recommend him and QTX to anyone wanting to start.
+        </p>
+        <span>- Artur Chololejenko</span>
+      </div>
+
+      <div class="testimonial">
+        <p>
+          Joining QTX really opened my eyes to the world of trading. Its simple education, great community and overall habits that are taught 
+          set me up perfectly for success. I’ve made plenty of money month after month and wish to improve and make even more in the future.
+        </p>
+        <span>- Lukas Godkin</span>
+      </div>
+
+      <div class="testimonial">
+        <p>
+          I’ve learned so much in such a short space of time, and a big part of that is thanks to Ivan. He’s not only knowledgeable but also genuinely supportive. 
+          Anytime I’ve had questions, he’s always taken the time to answer and guide me in the right direction.
+          <br><br>
+          What really stands out is the mindset he encourages. Even during tough periods when I’ve taken losses, he reminds me that it’s part of the journey 
+          and helps me stay focused on the bigger picture and long-term success.
+          <br><br>
+          If you’re serious about improving your trading and surrounding yourself with the right guidance, I definitely recommend QTX.
+        </p>
+        <span>- Khemveer Teeluck</span>
+      </div>
+
+      <!-- DUPLICATES FOR SMOOTH LOOP -->
+      <div class="testimonial">
+        <p>
+          Ever since I have joined QuantumX and started with Ivan as my mentor, my knowledge and skills in trading have improved significantly.
+        </p>
+        <span>- Artur</span>
+      </div>
+
+      <div class="testimonial">
+        <p>
+          The education, community, and habits taught set me up perfectly for success.
+        </p>
+        <span>- Lukas</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Ready to Take Trading Seriously?</h2>
+  <p>Join a system built for consistency and real results.</p>
+  <a href="https://t.me/+ubJE9w2ZB9wyZjU0" class="btn">Apply for VIP</a>
+</div>
+
+<a href="https://t.me/+ubJE9w2ZB9wyZjU0" class="telegram">✉️</a>
+
+
+
+<footer>
+  <p>© 2026 ISF Trading</p>
+</footer>
+
+<script>
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      sec.classList.add("show");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
